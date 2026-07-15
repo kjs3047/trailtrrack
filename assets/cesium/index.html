@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>TrailTrack Map</title>
+
+  <!--
+    CESIUM_BASE_URL must be set BEFORE Cesium.js loads so that Cesium resolves
+    its Workers/Assets/Widgets/ThirdParty relative to the bundled runtime.
+    Assets are served by flutter_inappwebview from the app bundle; the base
+    path is relative to index.html.
+  -->
+  <script>
+    window.CESIUM_BASE_URL = 'cesium/';
+  </script>
+  <script src="cesium/Cesium.js"></script>
+  <link rel="stylesheet" href="cesium/Widgets/widgets.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="loading" class="overlay">
+    <div class="spinner"></div>
+    <div class="overlay-text">지도를 불러오는 중…</div>
+  </div>
+  <div id="error" class="overlay hidden">
+    <div class="overlay-text" id="error-text">지도를 불러오지 못했습니다</div>
+  </div>
+
+  <!-- Order matters: bridge first, then controllers that register handlers. -->
+  <script src="app.js"></script>
+  <script src="map-controller.js"></script>
+  <script src="photo-markers.js"></script>
+  <script src="route-player.js"></script>
+  <script>
+    // Kick off the bridge once all modules are parsed.
+    window.TrailTrack.boot();
+  </script>
+</body>
+</html>

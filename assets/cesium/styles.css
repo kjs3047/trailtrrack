@@ -1,0 +1,77 @@
+/* TrailTrack Cesium map styles. Kept minimal — Flutter renders the HUD/controls
+   on top of the WebView; this file only styles the canvas and load/error
+   overlays. Colours mirror the Apex Wilderness design system. */
+
+html, body, #cesiumContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Light neutral so the pre-paint / loading state is not a black slab
+     covering the map (matches the app background). */
+  background: #f8f9fa;
+  font-family: -apple-system, "Roboto", "Noto Sans KR", sans-serif;
+}
+
+/* Hide Cesium's default UI widgets — Flutter provides the controls. */
+.cesium-viewer-bottom,
+.cesium-viewer-animationContainer,
+.cesium-viewer-timelineContainer,
+.cesium-viewer-fullscreenContainer,
+.cesium-viewer-toolbar {
+  display: none !important;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #f8f9fa;
+  color: #191c1d;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#error .overlay-text {
+  color: #ba1a1a;
+  max-width: 80%;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #c2c9bb;
+  border-top-color: #154212; /* forest green */
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Photo marker badge (count) rendered as a billboard label fallback. */
+.photo-badge {
+  background: #f26419;
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
