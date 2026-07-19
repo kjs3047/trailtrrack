@@ -5,7 +5,7 @@ import '../../../core/utils/formatters.dart';
 import '../../map/cesium_map_controller.dart';
 
 /// 3D route-replay control panel (spec §11): play/pause, restart, progress
-/// slider, speed (5/10/20×, default 20×), camera-follow toggle, and a live
+/// slider, speed (10/50/100×, default 50×), camera-follow toggle, and a live
 /// current speed / altitude / cumulative distance.
 ///
 /// The heavy lifting (time-dynamic marker) lives in the Cesium `route-player`
@@ -23,14 +23,14 @@ class ReplayControls extends StatefulWidget {
 class _ReplayControlsState extends State<ReplayControls> {
   bool _playing = false;
   bool _follow = true;
-  int _speed = 20;
+  int _speed = 50;
   double _fraction = 0;
   double _speedReadout = 0; // m/s
   double? _altReadout;
   double _distReadout = 0; // m
   bool _dragging = false;
 
-  static const _speeds = [5, 10, 20];
+  static const _speeds = [10, 50, 100];
 
   @override
   void initState() {
