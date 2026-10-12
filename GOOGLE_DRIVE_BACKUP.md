@@ -53,7 +53,7 @@ keytool -list -v \
 On this machine the debug SHA-1 is:
 
 ```
-D6:7A:CA:98:19:03:4D:4F:79:A7:5E:12:C9:71:6F:FA:4D:C1:4A:50
+C0:51:DD:A7:F6:84:BC:41:45:36:79:B6:E8:F0:20:E2:24:5D:7E:8B
 ```
 
 If you later add a real release signing config, register that keystore's SHA-1
