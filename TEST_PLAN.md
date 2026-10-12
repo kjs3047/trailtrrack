@@ -64,26 +64,30 @@ All unit and integration tests above are implemented. Test files:
 | Debug APK build | ✅ `build/app/outputs/flutter-apk/app-debug.apk` |
 | Release APK build | ✅ `build/app/outputs/flutter-apk/app-release.apk` |
 
-## On-device manual — M1 Cesium acceptance (do before M2)
+## On-device manual — Cesium map acceptance (M1)
+
+The M1 developer PoC screen (`/cesium-poc`) is not reachable from the app UI,
+so verify the same map behaviour on the real screens instead. Record one short
+outdoor activity first (see **Recording (M2)** below) so a detail screen with a
+route exists.
 
 Install both Debug and Release APKs on a real Android device and verify:
 
-1. App launches to the dashboard; tap the 🌐 (globe) app-bar icon → "Cesium PoC".
-2. **Cesium loads** — the globe/map renders (not stuck on the loading spinner).
-3. **Local asset load in release** — the release APK renders the map too (this
+1. **Cesium loads** — open the activity's detail screen; the map renders (not
+   stuck on "지도를 불러오는 중…").
+2. **Local asset load in release** — the release APK renders the map too (this
    proves the vendored Cesium assets are bundled and load from `file://`).
-4. **Terrain** — with a valid `CESIUM_ION_TOKEN` in `.env`, 3D terrain relief is
-   visible; status text reads "Terrain 로드됨". Without a token it reads
-   "Terrain 미로드" and shows flat offline imagery (expected).
-5. **2D/3D toggle** — the `2D/3D` control morphs the scene; both render.
-6. **Test route** — the Bukhansan sample polyline is drawn in safety-orange with
-   start (green) / end (red) markers, and the simulated GPS-gap segment is **not**
-   connected by a straight line.
-7. **Camera controls** — layers/north-up/zoom/locate buttons respond.
-8. **Map touch** — tapping the route shows "선택: 경로 #n …" (TRACK_POINT_SELECTED).
-9. **DEM lookup** — tap "DEM 조회"; with a token it reports heights for the route
-   points.
-10. **Route replay** — tap "경로 재생"; the marker animates along the route.
+3. **Terrain** — with a valid `CESIUM_ION_TOKEN` in `.env` (Settings shows
+   "Cesium ion 토큰 · 설정됨"), 3D terrain relief is visible and the route and
+   markers sit on the ground surface (not floating or buried). Without a token,
+   flat offline imagery is expected.
+4. **2D/3D toggle** — the `2D/3D` control morphs the scene; both render.
+5. **Route** — the route polyline is drawn with start (green) / end (red)
+   markers. For the GPS-gap check, pause for more than 20 s, move ~100 m, then
+   resume: the gap is **not** bridged by a straight line.
+6. **Camera controls** — 위성/일반 지도, north-up, locate (fit route) and zoom
+   buttons respond.
+7. **Route replay** — see **Photos & replay (M4)** below.
 
 Record the device model, Android version, and pass/fail per item. Report issues
 (especially any release-mode asset/worker load failure) back.
