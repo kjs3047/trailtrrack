@@ -36,7 +36,7 @@ migrate_working_dir/
 # Secrets / environment (never commit real tokens)
 .env
 
-# Bundled Cesium runtime (vendored build artifact; fetched via tool/fetch_cesium)
+# Bundled Cesium runtime (vendored build artifact; vendored per README "CesiumJS 런타임 vendoring")
 /assets/cesium/cesium/
 
 # Symbolication related

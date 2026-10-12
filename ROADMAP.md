@@ -1,9 +1,8 @@
 # ROADMAP
 
 Milestone status for the TrailTrack MVP, plus features **explicitly deferred**
-out of the MVP (spec §2). Deferred features are recorded here (and any detailed
-prior sync designs under `docs/spec/future/`); they are **not** implemented in
-MVP code.
+out of the MVP (spec §2). Deferred features are recorded here; they are **not**
+implemented in MVP code.
 
 ## Milestones
 
@@ -43,10 +42,6 @@ MVP code:
 - Automatic background sync
 - WorkManager periodic sync
 - Resumable-upload session recovery after app restart
-
-Detailed prior designs for the above (incremental sync, tombstones, conflict
-merge, appDataFolder) are preserved as reference specs under
-`docs/spec/future/` — not deleted, not implemented.
 
 ### Product scope
 - Sharing records between users

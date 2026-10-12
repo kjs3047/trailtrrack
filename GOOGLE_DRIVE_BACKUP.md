@@ -7,7 +7,7 @@ ZIP writer target a stable spec.
 
 > **Status:** format fixed; implementation in M5. Multi-device sync, delta sync,
 > tombstones, conflict merge and background sync are explicitly **out of scope**
-> (spec §2; see `ROADMAP.md` / `docs/spec/future/`).
+> (spec §2; see `ROADMAP.md`).
 
 ## OAuth
 

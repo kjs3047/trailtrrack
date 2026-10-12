@@ -60,7 +60,7 @@ All unit and integration tests above are implemented. Test files:
 |-------|--------|
 | `dart format` | ✅ clean |
 | `flutter analyze` | ✅ no issues |
-| `flutter test` | ✅ 66 tests passing |
+| `flutter test` | ✅ 79 tests passing |
 | Debug APK build | ✅ `build/app/outputs/flutter-apk/app-debug.apk` |
 | Release APK build | ✅ `build/app/outputs/flutter-apk/app-release.apk` |
 
@@ -113,7 +113,7 @@ Install the Release APK and verify the end-to-end flows (spec §16):
 - [ ] During recording, the camera button captures a photo (camera permission
       requested on first use); a marker appears on the map.
 - [ ] Detail shows photo markers with a count badge; tapping opens the gallery.
-- [ ] 3D replay: play/pause/restart/seek, 1/2/4/8× speed, camera-follow toggle;
+- [ ] 3D replay: play/pause/restart/seek, 10/50/100× speed (default 50×), camera-follow toggle;
       the readout shows current speed/altitude/cumulative distance.
 
 **Google Drive backup/restore (M5)**

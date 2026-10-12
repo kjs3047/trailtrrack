@@ -40,7 +40,7 @@ Batching: track points are sent in batches (`SET_TRACK_POINTS` /
 | `START_ROUTE_REPLAY` | `{ speed?, follow? }` | Begin time-dynamic replay of the loaded route. |
 | `PAUSE_ROUTE_REPLAY` | – | Pause the clock. |
 | `SEEK_ROUTE_REPLAY` | `{ fraction }` | Seek to `0.0..1.0` of the route timeline. |
-| `SET_REPLAY_SPEED` | `{ speed }` | `1`\|`2`\|`4`\|`8`. |
+| `SET_REPLAY_SPEED` | `{ speed }` | Clock multiplier; the replay UI sends `10`\|`50`\|`100`. |
 | `SET_REPLAY_FOLLOW` | `{ follow }` | Camera follow on/off. |
 | `STOP_ROUTE_REPLAY` | – | Stop and reset to the start. |
 | `LOOKUP_DEM` | `{ requestId, points:[{lat,lon}] }` | Batch sample terrain heights; replies `DEM_RESULT`. |

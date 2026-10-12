@@ -20,7 +20,7 @@ void main(List<String> args) {
   if (!root.existsSync()) {
     stderr.writeln(
       'Cesium runtime not found at $cesiumRoot. '
-      'Run tool/fetch_cesium (see README) first.',
+      'Vendor it first (see README "CesiumJS 런타임 vendoring").',
     );
     exit(2);
   }
